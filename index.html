@@ -1,1 +1,937 @@
-<h1>Surajit Kundu</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio | Your Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Georgia', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--light-color);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--secondary-color);
+            display: inline-block;
+            padding: 0 1rem;
+            background-color: inherit;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            z-index: 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            transform: translateX(-50%);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Publications Section */
+        .publications {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .publication-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: var(--secondary-color);
+        }
+
+        .pub-authors {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .pub-details {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .project-description {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-date {
+            min-width: 120px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .exp-content {
+            flex: 1;
+        }
+
+        .exp-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--secondary-color);
+        }
+
+        .exp-company {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-description {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-text {
+            margin-bottom: 1rem;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .experience-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .exp-date {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-img">
+            <h1>Your Name</h1>
+            <p class="title">PhD Candidate in [Your Field] at [Your University]</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-google-scholar"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm a passionate PhD candidate specializing in [Your Field] at [Your University]. My research focuses on [brief description of your research focus]. With a strong background in [relevant skills or fields], I aim to [your research goals or mission].</p>
+                    <p>My academic journey has been driven by curiosity and a commitment to solving complex problems in [your field]. I enjoy collaborating with interdisciplinary teams and applying computational methods to address real-world challenges.</p>
+                    <p>When I'm not in the lab or writing papers, you can find me [your hobbies or interests outside academia].</p>
+                    <div class="skills">
+                        <span class="skill">Machine Learning</span>
+                        <span class="skill">Data Analysis</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">R</span>
+                        <span class="skill">Statistical Modeling</span>
+                        <span class="skill">Research Design</span>
+                        <span class="skill">Scientific Writing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - Present</div>
+                        <h3 class="timeline-title">PhD in [Your Field]</h3>
+                        <p>[Your University], [Your Department]</p>
+                        <p>Advisor: [Advisor's Name]</p>
+                        <p>Thesis: "Your Thesis Title"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <h3 class="timeline-title">MSc in [Your Field]</h3>
+                        <p>[Your University]</p>
+                        <p>GPA: X.XX/4.0</p>
+                        <p>Thesis: "Your Master's Thesis Title"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014 - 2018</div>
+                        <h3 class="timeline-title">BSc in [Your Field]</h3>
+                        <p>[Your University]</p>
+                        <p>GPA: X.XX/4.0</p>
+                        <p>Honors: [Any honors or awards]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Publications</h2>
+            </div>
+            <div class="publications">
+                <div class="publication-item">
+                    <h3 class="pub-title">Title of Your Journal Paper</h3>
+                    <p class="pub-authors">Your Name, Co-author 1, Co-author 2</p>
+                    <p class="pub-details">Journal Name, Volume(Issue), Pages, Year</p>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> DOI</a>
+                        <a href="#"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+                <div class="publication-item">
+                    <h3 class="pub-title">Title of Your Conference Paper</h3>
+                    <p class="pub-authors">Your Name, Co-author 1, Co-author 2</p>
+                    <p class="pub-details">Conference Name, Location, Year</p>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> DOI</a>
+                    </div>
+                </div>
+                <div class="publication-item">
+                    <h3 class="pub-title">Title of Your Preprint</h3>
+                    <p class="pub-authors">Your Name, Co-author 1, Co-author 2</p>
+                    <p class="pub-details">arXiv preprint arXiv:XXXX.XXXXX, Year</p>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> arXiv</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project Image" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Project Title 1</h3>
+                        <p class="project-description">Brief description of your research project, its objectives, and significance. Highlight key findings or methodologies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project Image" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Project Title 2</h3>
+                        <p class="project-description">Brief description of your research project, its objectives, and significance. Highlight key findings or methodologies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Statistical Modeling</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Project Image" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Project Title 3</h3>
+                        <p class="project-description">Brief description of your research project, its objectives, and significance. Highlight key findings or methodologies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Natural Language Processing</span>
+                            <span class="tech-tag">Deep Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="exp-date">2021 - Present</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">Research Assistant</h3>
+                        <p class="exp-company">[Your University], [Department Name]</p>
+                        <p class="exp-description">Conducting original research in [specific area]. Developing novel methodologies for [specific problem]. Collaborating with interdisciplinary team members.</p>
+                        <ul>
+                            <li>Designed and implemented experiments to test hypotheses</li>
+                            <li>Analyzed data using advanced statistical methods</li>
+                            <li>Published X papers in peer-reviewed journals</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-date">Summer 2020</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">Research Intern</h3>
+                        <p class="exp-company">[Company/Institution Name]</p>
+                        <p class="exp-description">Worked on [specific project] under the supervision of [supervisor's name]. Developed skills in [specific skills].</p>
+                        <ul>
+                            <li>Implemented [specific technique or method]</li>
+                            <li>Presented findings at [event or meeting]</li>
+                            <li>Contributed to [specific outcome]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-date">2019 - 2020</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title">Teaching Assistant</h3>
+                        <p class="exp-company">[Your University], [Course Name]</p>
+                        <p class="exp-description">Assisted professor in delivering course content. Held office hours and review sessions. Graded assignments and provided feedback.</p>
+                        <ul>
+                            <li>Developed instructional materials for students</li>
+                            <li>Mentored X students on research projects</li>
+                            <li>Received teaching evaluation score of X.X/5.0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>your.email@university.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>[Your Department]<br>[Your University]<br>[City, Country]</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (XXX) XXX-XXXX</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2023 Your Name. All rights reserved.</p>
+            <p class="footer-text">Last updated: Month Day, Year</p>
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'inline-block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
